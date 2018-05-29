@@ -96,7 +96,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txbFilePath">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cPC\u005cDesktop\u005ctest.txt" containsInvalidXMLChars="true"/>
+            <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cPC\u005cDesktop\u005ctest.csv" containsInvalidXMLChars="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txbFilePathActionPerformed"/>
@@ -168,6 +168,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonSort" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButtonSortByLevel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="Exit" min="-2" pref="87" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -178,7 +182,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="Exit" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="Exit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSort" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSortByLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -191,6 +199,22 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonSort">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sort"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSortActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonSortByLevel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sort by Level"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSortByLevelActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

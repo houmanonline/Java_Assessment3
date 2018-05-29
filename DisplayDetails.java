@@ -11,6 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +27,14 @@ public class DisplayDetails extends javax.swing.JFrame {
 
     /**
      * Creates new form DisplayDetails
-     */
+     */   
+     // Create an instance of Players
+     Players player = new Players();
+     // Create 3 parameters
+     String description;
+     int level;
+     int maximum;
+     
     public DisplayDetails() {
         initComponents();
     }
@@ -48,13 +57,15 @@ public class DisplayDetails extends javax.swing.JFrame {
         jtableAchievement = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         Exit = new javax.swing.JButton();
+        jButtonSort = new javax.swing.JButton();
+        jButtonSortByLevel = new javax.swing.JButton();
 
         btnExit.setText("Exit");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
 
-        txbFilePath.setText("C:\\Users\\PC\\Desktop\\test.txt");
+        txbFilePath.setText("C:\\Users\\PC\\Desktop\\test.csv");
         txbFilePath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txbFilePathActionPerformed(evt);
@@ -125,12 +136,30 @@ public class DisplayDetails extends javax.swing.JFrame {
             }
         });
 
+        jButtonSort.setText("Sort");
+        jButtonSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSortActionPerformed(evt);
+            }
+        });
+
+        jButtonSortByLevel.setText("Sort by Level");
+        jButtonSortByLevel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSortByLevelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButtonSort)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSortByLevel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -138,7 +167,10 @@ public class DisplayDetails extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Exit)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Exit)
+                    .addComponent(jButtonSort)
+                    .addComponent(jButtonSortByLevel))
                 .addContainerGap())
         );
 
@@ -170,12 +202,7 @@ public class DisplayDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadFileActionPerformed
-        // Create an instance of Players
-        Players player = new Players();
-        // Create 3 parameters
-        String description;
-        int level;
-        int maximum;
+        
         // Get file path from Textbox
         Path pathToFile = Paths.get(txbFilePath.getText());
         System.out.println(txbFilePath.getText());
@@ -239,6 +266,33 @@ public class DisplayDetails extends javax.swing.JFrame {
         // Exit Button
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void jButtonSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortActionPerformed
+        // TODO add your handling code here:
+        Comparator<Achievement> nameComparator;
+        nameComparator = new Comparator<Achievement>(){
+            @Override
+            public int compare(Achievement o1, Achievement o2) {
+                return o1.getDescription().compareTo(o2.getDescription());
+            }
+        };
+        player.getAchievements().sort(nameComparator);
+        this.displayInTheTable(player);
+     
+    }//GEN-LAST:event_jButtonSortActionPerformed
+
+    private void jButtonSortByLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortByLevelActionPerformed
+        // TODO add your handling code here:
+        Comparator<Achievement> LevelComparator;
+        LevelComparator = new Comparator<Achievement>(){
+            @Override
+            public int compare(Achievement o1, Achievement o2) {
+                return o1.getLevel() - o2.getLevel();
+            }
+        };
+        player.getAchievements().sort(LevelComparator);
+        this.displayInTheTable(player);
+    }//GEN-LAST:event_jButtonSortByLevelActionPerformed
     public void displayInTheTable(Players player)
     {
         DefaultTableModel dm = new DefaultTableModel(0, 0);
@@ -291,6 +345,8 @@ public class DisplayDetails extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnReadFile;
+    private javax.swing.JButton jButtonSort;
+    private javax.swing.JButton jButtonSortByLevel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
