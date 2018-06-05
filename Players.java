@@ -3,7 +3,10 @@
  */
 package Question1;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * ICTPRG523 Apply Advanced Programming Skills In Another Language
@@ -21,6 +24,13 @@ public class Players {
         this.tagname = " "; 
         this.achievements = new ArrayList<>();
     }
+    
+     public String timeStamp()
+     {
+        Date nowTime = new Date(); 
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+        return dateFormat.format(nowTime);
+     }
     
      public ArrayList<Achievement> getAchievements() {
         return achievements;
