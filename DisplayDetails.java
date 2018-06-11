@@ -1,6 +1,3 @@
-/*
- * This is the code of Question1 B
- */
 package Question1;
 
 import java.io.BufferedReader;
@@ -13,12 +10,12 @@ import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 /**
  * ICTPRG523 Apply Advanced Programming Skills In Another Language
  * Student Name: Man Hou
  * Student ID :10042466
+ * Assessment3 Question 1
  */
 public class DisplayDetails extends javax.swing.JFrame {     
      // Create an instance of Players
@@ -30,8 +27,6 @@ public class DisplayDetails extends javax.swing.JFrame {
      
      
     public DisplayDetails() {
-//        JTableHeader header = jtableAchievement.getTableHeader();
-//        header.addMouseListener(l);
         initComponents();
     }
 
@@ -126,20 +121,6 @@ public class DisplayDetails extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txbFilePath, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextSearchInput, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelInput)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldInputPath, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnReadFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButtonConvert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +128,21 @@ public class DisplayDetails extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSortByLevel))
                             .addComponent(jLabelSearch))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldInputPath, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txbFilePath, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextSearchInput, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelInput)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnReadFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonConvert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,12 +162,13 @@ public class DisplayDetails extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextSearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch))
-                .addGap(6, 6, 6)
+                .addGap(9, 9, 9)
+                .addComponent(jLabelInput)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInput)
                     .addComponent(jTextFieldInputPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConvert))
-                .addGap(82, 82, 82))
+                .addGap(54, 54, 54))
         );
 
         jtableAchievement.setModel(new javax.swing.table.DefaultTableModel(
@@ -252,7 +248,7 @@ public class DisplayDetails extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
+    // Read objects from file
     private void btnReadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadFileActionPerformed
         // Clear the arraylist everytime click button
         player.getAchievements().clear();
@@ -301,6 +297,7 @@ public class DisplayDetails extends javax.swing.JFrame {
             System.out.println(Integer.toString(player.getAchievement(i).getLevel()));
             System.out.println(Integer.toString(player.getAchievement(i).getMaximum()));
         }
+        // Display player name and current date and time
         lblPlayerNameAndTime.setText("Achievements of " + player.getTagname() + " at " + player.timeStamp() );
         // display in the table
         this.displayInTheTable(player);
@@ -308,14 +305,14 @@ public class DisplayDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReadFileActionPerformed
 
     private void txbFilePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbFilePathActionPerformed
-        // TODO add your handling code here: double clicked by mistake
+        //Double clicked by mistake
     }//GEN-LAST:event_txbFilePathActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         // Exit Button
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
-
+    //Sort by Description button
     private void jButtonSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortActionPerformed
         // Create a description comparator
         Comparator<Achievement> nameComparator;
@@ -329,9 +326,8 @@ public class DisplayDetails extends javax.swing.JFrame {
         player.getAchievements().sort(nameComparator);
         // display in the table
         this.displayInTheTable(player);
-     
     }//GEN-LAST:event_jButtonSortActionPerformed
-    
+    //Sort by Level button
     private void jButtonSortByLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortByLevelActionPerformed
         // Create a level comparator 
         Comparator<Achievement> LevelComparator;
@@ -346,13 +342,14 @@ public class DisplayDetails extends javax.swing.JFrame {
         // display in the table
         this.displayInTheTable(player);
     }//GEN-LAST:event_jButtonSortByLevelActionPerformed
-
+    //Search button
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        
+        //Create a new table model for search result
         DefaultTableModel dmSearchResult = new DefaultTableModel(0, 0);
         String header[] = new String[]{"Description", "Level", "Out of Possible"};
         dmSearchResult.setColumnIdentifiers(header);
         int size = player.getAchievements().size();
+        //search the input text
         for (int r = 0; r < size; r++) {
               if (jTextSearchInput.getText().equals(player.getAchievement(r).getDescription().toString()))
               {
@@ -369,13 +366,14 @@ public class DisplayDetails extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonSearchActionPerformed
-
+    // Convert CSV file into PDF file
     private void jButtonConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertActionPerformed
-        // TODO add your handling code here:
+
         PlayersList pl = new PlayersList();
         PDFGenerator pdfGenerator = new PDFGenerator();
-//        Players playerInList = new Players();
+        //Get the file path from textbox
         Path pathOfPlayersList = Paths.get(jTextFieldInputPath.getText());
+        //Read the file and add each object into PlayerList(ArrayList)
         try (BufferedReader brPlayersList = Files.newBufferedReader(pathOfPlayersList,
                     StandardCharsets.UTF_8))
         {
@@ -406,15 +404,15 @@ public class DisplayDetails extends javax.swing.JFrame {
                     pl.getPlayer(pl.getPl().size() - 1).populateAchievements(achievement);
                 }
             line = brPlayersList.readLine();        
-            }         
+            }
+            //Create PDF file
             pdfGenerator.execute(pl);
         }
         catch (IOException ex) {
             Logger.getLogger(DisplayDetails.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        
-        
+        }        
     }//GEN-LAST:event_jButtonConvertActionPerformed
+    // Display one player and its detail in table.
     public void displayInTheTable(Players player)
     { 
         DefaultTableModel dm = new DefaultTableModel(0, 0);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Question1;
 
 import java.io.File;
@@ -13,13 +8,15 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 /**
- *
- * @author PC
+ * ICTPRG523 Apply Advanced Programming Skills In Another Language
+ * Student Name: Man Hou
+ * Student ID :10042466
+ * Assessment3 Question 2 Section A
  */
 public class PDFGenerator {
     File pdfFile = new File("C:\\Users\\PC\\Desktop\\Player.pdf");
     PDDocument document;
-
+    //Constructor
     public PDFGenerator() {
         this.document = new PDDocument();
     }
@@ -29,7 +26,7 @@ public class PDFGenerator {
         generatePDFFromString(pl);
         showPDFFile();
     }
-    
+    //Open PDF file
     private void showPDFFile() throws IOException
     {
         if(pdfFile.exists())
@@ -37,7 +34,7 @@ public class PDFGenerator {
             java.awt.Desktop.getDesktop().open(pdfFile);
         }
     }
-    
+    //Add objects into pages, then save.
     private void generatePDFFromString(PlayersList pl) throws IOException
     {
         for(Players player:pl.getPl())
@@ -85,7 +82,6 @@ public class PDFGenerator {
         //Ending the content stream
         contentStream.endText();
         //Closing the content stream
-        contentStream.close();
-        
+        contentStream.close();       
     }
 }

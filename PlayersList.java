@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Question1;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author PC
+ * ICTPRG523 Apply Advanced Programming Skills In Another Language
+ * Student Name: Man Hou
+ * Student ID :10042466
  */
 public class PlayersList {
     private ArrayList<Players> pl;
@@ -17,11 +13,11 @@ public class PlayersList {
     public ArrayList<Players> getPl() {
         return pl;
     }
-
+    //Constructor
     public PlayersList() {
         this.pl = new ArrayList<>();
     }
-    
+    // add objects into an ArrayList
     public void populatePlayerList(Players player)
     {
         pl.add(player);

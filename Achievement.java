@@ -1,15 +1,15 @@
-/*
- * This is the code of Question1 B
- */
 package Question1;
 
+import java.io.Serializable;
 /**
  * ICTPRG523 Apply Advanced Programming Skills In Another Language
  * Student Name: Man Hou
  * Student ID :10042466
  */
-public class Achievement {
-
+public class Achievement implements Serializable{
+    
+    private static final long serialVersionUID = 5950169519310163575L;
+    //Constructor
     public Achievement(String description, int level, int maximum) {
         this.description = description;
         this.level = level;
