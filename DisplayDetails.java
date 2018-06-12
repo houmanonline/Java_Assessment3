@@ -358,10 +358,11 @@ public class DisplayDetails extends javax.swing.JFrame {
                                      Integer.toString(player.getAchievement(r).getLevel()),
                                      Integer.toString(player.getAchievement(r).getMaximum())});
                   jtableAchievement.setModel(dmSearchResult);
+                  lblPlayerNameAndTime.setText(jTextSearchInput.getText() + " Found!");
                   break;
               }
               else
-              {lblPlayerNameAndTime.setText("Can not find " + jTextSearchInput.getText() + ".");}
+              {lblPlayerNameAndTime.setText("Cannot find " + jTextSearchInput.getText() + ".");}
         }
         
         
